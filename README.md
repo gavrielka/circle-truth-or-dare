@@ -14,7 +14,7 @@ npm install
 npm run dev
 ```
 
-Then open the printed local URL.
+Open the local URL Vite prints (port 5173).
 
 ```bash
 npm run typecheck
