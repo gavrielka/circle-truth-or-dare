@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #160e2e;
+  --color-surface: #221844;
+  --color-raised: #2d2158;
+  --color-fg: #f7f4ff;
+  --color-muted: #c7b8e8;
+  --color-subtle: #9b8ab8;
+  --color-primary: #ff2d9b;
+  --color-primary-fg: #ffffff;
+  --color-cyan: #3ee0ea;
+  --color-cyan-fg: #10202a;
+  --color-sun: #ffd44d;
+  --color-sun-fg: #2a1d00;
+  --color-orange: #ff8a3d;
+  --color-orange-fg: #2a1200;
+  --color-violet: #7a5cff;
+  --color-border: color-mix(in oklab, var(--color-fg) 16%, transparent);
+  --color-border-strong: color-mix(in oklab, var(--color-fg) 28%, transparent);
+  --color-ring: #ff2d9b;
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --radius-xl: 28px;
+  --radius-2xl: 36px;
+  --font-sans: "Nunito", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Nunito", "Segoe UI", system-ui, sans-serif;
+}
+
+@layer base {
+  html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  html, body, #app { min-height: 100%; background: var(--color-bg); color: var(--color-fg); }
+  body { font-family: var(--font-sans); }
+  h1, h2, h3 { text-wrap: balance; }
+  p { text-wrap: pretty; }
+  button:not(:disabled), [role="button"]:not(:disabled) { cursor: pointer; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.blob { border-radius: 42% 58% 48% 52% / 48% 42% 58% 52%; }
+.blob-alt { border-radius: 58% 42% 62% 38% / 42% 58% 38% 62%; }
+
+@keyframes rise-in { from { opacity: 0; transform: translateY(14px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.rise-in { animation: rise-in 420ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+.rise-in-delay-1 { animation-delay: 50ms; }
+.rise-in-delay-2 { animation-delay: 100ms; }
+.rise-in-delay-3 { animation-delay: 150ms; }
+.rise-in-delay-4 { animation-delay: 200ms; }
+
+@keyframes chip-in { from { opacity: 0; transform: scale(0.9) translateY(8px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+.chip-in { animation: chip-in 280ms cubic-bezier(0.34, 1.2, 0.64, 1) both; }
+
+@keyframes card-flip { from { opacity: 0; transform: rotate(-6deg) translateY(22px) scale(0.92); } to { opacity: 1; transform: rotate(0deg) translateY(0) scale(1); } }
+.card-flip { animation: card-flip 480ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+@keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+.floaty { animation: floaty 4s ease-in-out infinite; }
+
+@keyframes name-swap { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.name-swap { animation: name-swap 280ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+.wheel {
+  background: conic-gradient(#3ee0ea 0deg 60deg, #ff2d9b 60deg 120deg, #ffd44d 120deg 180deg, #7a5cff 180deg 240deg, #ff8a3d 240deg 300deg, #3ee0ea 300deg 360deg);
+  transition: transform 1.35s cubic-bezier(0.15, 0.85, 0.25, 1);
+}
+.bottle { transition: transform 1.35s cubic-bezier(0.15, 0.85, 0.25, 1); }
